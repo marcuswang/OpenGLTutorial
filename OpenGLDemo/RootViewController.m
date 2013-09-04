@@ -7,13 +7,14 @@
 //
 
 #import "RootViewController.h"
-
-
 @interface RootViewController ()
+@property (strong, nonatomic) EAGLContext *context;
 
 @end
 
 @implementation RootViewController
+@synthesize context = _context;
+@synthesize openGl=_openGl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,11 +29,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-     NSLog(@"======viewDidLoad=========>%d",[NSThread isMainThread]);
-    EAGLContext * context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     GLKView *glkView = [[GLKView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [glkView setEnableSetNeedsDisplay:YES];
-    glkView.context = context;
+    glkView.context = self.context;
     glkView.delegate = self;
     
     GLKViewController *glkViewController = [[GLKViewController alloc] initWithNibName:nil bundle:nil]; // 1
@@ -41,20 +41,34 @@
     glkViewController.preferredFramesPerSecond = 60;    
     [self addChildViewController:glkViewController];
     [self.view addSubview:glkViewController.view];
+    
+     self.openGl=[[OpenGl alloc] init];
+    [self.openGl setupGL:self.context];
+    
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
-{
-     NSLog(@"======glkView=========>%d",[NSThread isMainThread]);
-    glClearColor(1.0, 0.0, 0.0, 1.0);
+{    
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
+   
+    [self.openGl draw:self.view];
 }
 - (void)glkViewControllerUpdate:(GLKViewController *)controller
 {
-    NSLog(@"======>>><<<<<=========>%d",[NSThread isMainThread]);
+    
+}
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    [self.openGl tearDownGL:self.context];
+    if ([EAGLContext currentContext] == self.context) {
+        [EAGLContext setCurrentContext:nil];
+    }
+    self.context = nil;
 }
 @end

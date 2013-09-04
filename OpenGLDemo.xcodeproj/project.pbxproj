@@ -21,6 +21,9 @@
 		DA442E4317D58BD30085AC0B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA442E4217D58BD30085AC0B /* QuartzCore.framework */; };
 		DA442E4517D58BDA0085AC0B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA442E4417D58BDA0085AC0B /* OpenGLES.framework */; };
 		DA442E4717D58BE10085AC0B /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA442E4617D58BE00085AC0B /* GLKit.framework */; };
+		DAF58CA517D6D6DC001C228F /* vertexes.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DAF58CA417D6D6DC001C228F /* vertexes.glsl */; };
+		DAF58CA717D6D737001C228F /* fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DAF58CA617D6D737001C228F /* fragment.glsl */; };
+		DAF58CB017D710FE001C228F /* OpenGl.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF58CAF17D710FE001C228F /* OpenGl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,10 @@
 		DA442E4217D58BD30085AC0B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DA442E4417D58BDA0085AC0B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		DA442E4617D58BE00085AC0B /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		DAF58CA417D6D6DC001C228F /* vertexes.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertexes.glsl; sourceTree = "<group>"; };
+		DAF58CA617D6D737001C228F /* fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fragment.glsl; sourceTree = "<group>"; };
+		DAF58CAE17D710FE001C228F /* OpenGl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGl.h; sourceTree = "<group>"; };
+		DAF58CAF17D710FE001C228F /* OpenGl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +130,10 @@
 				DA442E3C17D584EC0085AC0B /* RootViewController.h */,
 				DA442E3D17D584EC0085AC0B /* RootViewController.m */,
 				DA442E3E17D584EC0085AC0B /* RootViewController.xib */,
+				DAF58CA417D6D6DC001C228F /* vertexes.glsl */,
+				DAF58CA617D6D737001C228F /* fragment.glsl */,
+				DAF58CAE17D710FE001C228F /* OpenGl.h */,
+				DAF58CAF17D710FE001C228F /* OpenGl.m */,
 			);
 			name = main;
 			sourceTree = "<group>";
@@ -183,6 +194,8 @@
 				DA442E3417D584CE0085AC0B /* Default@2x.png in Resources */,
 				DA442E3617D584CE0085AC0B /* Default-568h@2x.png in Resources */,
 				DA442E4017D584EC0085AC0B /* RootViewController.xib in Resources */,
+				DAF58CA517D6D6DC001C228F /* vertexes.glsl in Resources */,
+				DAF58CA717D6D737001C228F /* fragment.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +209,7 @@
 				DA442E2C17D584CE0085AC0B /* main.m in Sources */,
 				DA442E3017D584CE0085AC0B /* AppDelegate.m in Sources */,
 				DA442E3F17D584EC0085AC0B /* RootViewController.m in Sources */,
+				DAF58CB017D710FE001C228F /* OpenGl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +324,7 @@
 				DA442E3B17D584CE0085AC0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

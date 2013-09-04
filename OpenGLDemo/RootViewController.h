@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import <GLKit/GLKit.h>
+#import "OpenGl.h"
 
 @interface RootViewController : UIViewController<GLKViewDelegate,GLKViewControllerDelegate>
-
+{
+    OpenGl *openGl;
+}
+@property(nonatomic,strong)OpenGl *openGl;
 @end
